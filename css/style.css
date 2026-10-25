@@ -460,7 +460,10 @@ table.spec{width:100%;border-collapse:collapse;font-size:.93rem}
   .section{padding:72px 0}
 }
 @media (max-width:720px){
-  .container{padding:0 16px}
+  .container{padding-left:16px;padding-right:16px}
+  .hero-inner{padding-top:44px;padding-bottom:60px}
+  .hero .eyebrow{line-height:1.5;align-items:flex-start}
+  .hero .eyebrow .dot{flex:none;margin-top:.45em}
   .p-grid,.p-grid-3{grid-template-columns:1fr 1fr;gap:12px}
   .p-card-body{padding:12px 12px 14px}
   .p-card h3{font-size:.92rem}

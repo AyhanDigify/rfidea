@@ -106,6 +106,9 @@
         f.classList.toggle("is-invalid", bad); if (bad) ok = false;
       });
       if (!ok) { status.className = "form-status err"; status.textContent = "Please complete the required fields."; return; }
+      if (form.querySelector("altcha-widget") && !form.querySelector("input[name=altcha]")?.value) {
+        status.className = "form-status err"; status.textContent = "Please confirm that you are not a robot."; return;
+      }
       const btn = form.querySelector("button[type=submit]"); btn.disabled = true;
       status.className = "form-status"; status.textContent = "Sending…";
       try {
@@ -115,7 +118,7 @@
         location.href = "/rfidea/thank-you/";
       } catch (err) {
         status.className = "form-status err";
-        status.innerHTML = `Sorry, the message could not be sent. Please email us directly at <a href="mailto:${form.dataset.email || "info@rfidea.com"}">${form.dataset.email || "info@rfidea.com"}</a>.`;
+        status.innerHTML = `Sorry, the message could not be sent. Please email us directly at <a href="mailto:${form.dataset.email || "info@rfidea.net"}">${form.dataset.email || "info@rfidea.net"}</a>.`;
         btn.disabled = false;
       }
     });
